@@ -2,9 +2,7 @@
 
 A simple authentication page with face recognition and face verification built with ReactJS and Face-api.js.
 
-## Demo
 
-- [https://demo-mmsa2022.albertovalerio.com/](https://demo-mmsa2022.albertovalerio.com/)
 
 ## Features
 
@@ -63,21 +61,5 @@ PRIVATE_KEY='...' (used by Bcrypt, must be of 32 chars)
 ```
 
 
-## Contact
 
-My name is **Alberto G. Valerio** and this project has been realized by me as university laboratory activity for the exam in *Models and Methods for Application Security*, Master Degree in Computer Science, curriculum studies in Artificial Intelligence at University of Bari "Aldo Moro", Italy.
 
-My email - [info@albertovalerio.com](info@albertovalerio.com)
-
-My website: [https://albertovalerio.com](https://albertovalerio.com)
-
-## Acknowledgments
-
-- **[@reactjs](https://reactjs.org/)**
-- **[@redux_toolkit](https://redux-toolkit.js.org/)**
-- **[@mongodb](https://www.mongodb.com/)**
-- **[@faceapi.js](https://github.com/justadudewhohacks/face-api.js/)**
-
-## License
-
-Distributed under the [MIT](https://choosealicense.com/licenses/mit/) License. See `LICENSE.txt` for more information.
