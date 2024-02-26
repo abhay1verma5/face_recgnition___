@@ -26,11 +26,11 @@ Minor features:
 ## Installation
 
 ```python
-git clone git@github.com:albertovalerio/face-recognition-auth-reactjs.git
+git clone https://github.com/abhay1verma5/face_recgnition___.git
 ```
 Install frontend dependencies
 ```python
-cd ~/path/to/your/face-recognition-auth-reactjs/frontend_app
+cd ~/path/to/your/face_recgnition___/frontend_app
 ```
 ```python
 npm install
@@ -40,7 +40,7 @@ npm start
 ```
 Install backend dependencies
 ```python
-cd ~/path/to/your/face-recognition-auth-reactjs/backend_app
+cd ~/path/to/your/face_recgnition___/backend_app
 ```
 ```python
 npm install
