@@ -8,8 +8,11 @@ const { TOKEN_KEY, FRONTEND_URL } = process.env
 const cors = require("cors")
 const auth = require("./middleware/auth")
 const mimetypes = require("mime-types")
-const fs = require("fs")
+
 const uuid = require("uuid")
+const fs = require('fs');
+
+const directory = 'uploads';
 const request = require('request').defaults({ encoding: null })
 const { euclideanDistance, manhattanDistance, encryptBiometrics, decryptBiometrics, getInitializationVector } = require("./utils")
 const path = require('path')
@@ -44,12 +47,19 @@ app.post('/api/auth/register', cors(corsOptions), async (req, res) => {
         const mime = (screenshot.split(';')[0]).split(':')[1]
         const ext = mimetypes.extension(mime)
         const path = 'uploads/'+uuid.v4()+'.'+ext
-        fs.writeFile(path, screenshot.split(',')[1], 'base64', (e) => {
-            if (e) {
-                console.log(e)
-                throw 'Unable to save file.'
+        
+
+// Create the directory if it doesn't exist
+if (!fs.existsSync(directory)) {
+    fs.mkdirSync(directory);
+}
+
+        fs.writeFile(path, screenshot.split(',')[1], 'base64', (error) => {
+            if (error) {
+                console.error('Error saving file:', error);
+                return res.status(500).send('Unable to save file.');
             }
-        })
+        });
         const encryptedUserPassword = await bcrypt.hash(password, 10)
         const iv = getInitializationVector(16)
         const user = await User.create({

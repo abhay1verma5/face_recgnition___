@@ -11,13 +11,19 @@ module.exports = {
     getInitializationVector: (len) => {
         return crypto.randomBytes(len)
     },
-    encryptBiometrics: (decriptor, iv) => {
-        const message = decriptor.join('###')
-        const cipher = crypto.createCipheriv('aes-256-cbc', PRIVATE_KEY, iv)
-        let encryptedData = cipher.update(message, 'utf-8', 'hex')        
-        encryptedData += cipher.final('hex')
-        return encryptedData
-    },
+   
+
+    encryptBiometrics: (descriptor, iv) => {
+        const message = descriptor.join('###'); // Join array elements into a single string
+        const cipher = crypto.createCipheriv('aes-256-cbc', PRIVATE_KEY, iv);
+        let encryptedData = cipher.update(message, 'utf-8', 'hex');
+        encryptedData += cipher.final('hex');
+        return encryptedData;
+    }
+,    
+
+
+
     decryptBiometrics: (descriptor, iv) => {
         const decipher = crypto.createDecipheriv('aes-256-cbc', PRIVATE_KEY, iv)
         let decryptedData = decipher.update(descriptor, 'hex', 'utf-8')

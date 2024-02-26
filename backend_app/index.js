@@ -1,5 +1,7 @@
 const http = require("http")
 const app = require("./app")
+require('dotenv').config();
+
 const server = http.createServer(app)
 
 const { API_PORT } = process.env
